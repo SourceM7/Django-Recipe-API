@@ -18,3 +18,4 @@ class Command(BaseCommand):
                 time.sleep(1)
 
         self.stderr.write(self.style.SUCCESS('Database Available!'))
+        
