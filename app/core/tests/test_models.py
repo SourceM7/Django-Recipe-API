@@ -1,6 +1,7 @@
-from django.test import TestCase
-from django.contrib.auth import get_user_model
 from decimal import Decimal
+
+from django.contrib.auth import get_user_model
+from django.test import TestCase
 
 from core import models
 
@@ -64,3 +65,12 @@ class ModelTests(TestCase):
         tag = models.Tag.objects.create(user=user, name='Tag1')
 
         self.assertEqual(str(tag), tag.name)
+
+    def test_create_ingredient(self):
+        user = create_user()
+        ingredient = models.Ingredient.objects.create(
+            user=user,
+            name='Ingredient1'
+        )
+
+        self.assertEqual(str(ingredient), ingredient.name)
